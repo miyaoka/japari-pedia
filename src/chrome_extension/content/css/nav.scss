@@ -1,0 +1,44 @@
+/**
+ * head menu
+ */
+#p-personal {
+  color: #fff;
+
+  & #pt-anonuserpage {
+    color: #fff;
+  }
+
+  & a {
+    color: #fff;
+  }
+}
+
+/**
+ * left menu
+ */
+div#mw-panel {
+
+  & #p-logo {
+//    visibility: hidden;
+  }
+
+  & div.portal div.body ul li a {
+    color: #85bd4d;
+    color: #a4e230;
+
+    &:visited {
+      color: #85bd4d;
+    }
+  }
+}
+
+#footer {
+ & a {
+    color: #85bd4d;
+    color: #a4e230;
+
+    &:visited {
+      color: #85bd4d;
+    }
+}
+}

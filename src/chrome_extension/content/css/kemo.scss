@@ -1,0 +1,27 @@
+@keyframes jump {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px) scale(1.5, 2);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.kemo-say {
+  font-weight: bold;
+  color: #27792a;
+  display: inline-block;
+  padding: 0 8px 0 0px;
+  transition: 150ms;
+  transition-timing-function: ease-in;
+  animation: jump 1s ease 0.5s 1 normal;
+
+  &:hover {
+    animation: jump 1s ease 0s infinite normal;
+  }
+}

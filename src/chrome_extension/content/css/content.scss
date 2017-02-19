@@ -1,0 +1,24 @@
+/**
+ * content
+ */
+#content {
+  background-image: linear-gradient(#fcd184 80%, #db9432 100%);
+  border: none;
+
+  a {
+    color: #8a2d10;
+  }
+
+  #toc,
+  .toc,
+  .infobox,
+  .mw-warning,
+  .toccolours {
+    border: 1px solid #90c31f;
+    background: #e0ea73;
+
+    & a {
+      color: #4a8011;
+    }
+  }
+}
