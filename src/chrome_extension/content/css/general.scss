@@ -1,0 +1,40 @@
+/**
+ * general
+ */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background: #375616;
+  background: #4a8011;
+//  background: #90c31f;
+}
+
+/**
+ * headings
+ */
+#firstHeading
+{
+  text-shadow: 0 0 8px #620,
+    0 0 2px #620,
+    0 0 2px #620;
+  color: #fff;
+  font-weight: bold;
+}
+
+h2 > .mw-headline {
+  text-shadow: 0 0 6px #cea55e;
+  color: #630;
+  font-weight: bold;
+}
+
+div#mw-panel div.portal h3 {
+  text-shadow: 0 0 6px #000;
+  color: #fff;
+}

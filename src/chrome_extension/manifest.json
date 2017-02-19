@@ -1,0 +1,17 @@
+{
+  "name": "JapariPedia",
+  "manifest_version": 2,
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.wikipedia.org/*",
+        "https://*.wiktionary.org/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
