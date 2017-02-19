@@ -6,7 +6,7 @@ fs.emptyDirSync(path.join(__dirname, '../build'))
 
 module.exports = (isDev) => {
   Object.assign(manifest, {
-    description: process.env.npm_package_description,
+//    description: process.env.npm_package_description,
     version: process.env.npm_package_version,
   })
 

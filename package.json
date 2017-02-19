@@ -50,6 +50,7 @@
     "webpack-dev-server": "^2.3.0"
   },
   "dependencies": {
+    "copy-webpack-plugin": "^4.0.1",
     "fs-extra": "^2.0.0",
     "html-webpack-plugin": "^2.28.0",
     "webpack": "^2.2.1",

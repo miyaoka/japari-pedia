@@ -1,6 +1,7 @@
 import webpack from 'webpack'
 import path from 'path'
 import WriteFilePlugin from 'write-file-webpack-plugin'
+import CopyWebpackPlugin from 'copy-webpack-plugin'
 import env from './env'
 
 const chromeExtPath = path.join(__dirname, '../src', 'chrome_extension')
@@ -55,5 +56,11 @@ module.exports = {
     // expose and write the allowed env vars on the compiled bundle
     new webpack.DefinePlugin({ 'process.env': JSON.stringify(env) }),
     new WriteFilePlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: path.join(chromeExtPath, 'icon'),
+        to: 'icon',
+      },
+    ]),
   ],
 }

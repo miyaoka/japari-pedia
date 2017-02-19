@@ -1,6 +1,12 @@
 {
-  "name": "JapariPedia",
+  "name": "ジャパリペディア",
+  "description": "Wikipedia を ジャパリ図書館化 するよ。",
   "manifest_version": 2,
+  "icons": {
+    "16": "icon/16.png",
+    "48": "icon/48.png",
+    "128": "icon/128.png"
+  },
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
     {
