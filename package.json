@@ -1,6 +1,6 @@
 {
   "name": "japari-pedia",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Welcome to youkoso japari-park!",
   "keywords": ["chrome-extension", "kemono-friends"],
   "repository": { "type": "git", "url": "https://github.com/miyaoka/japari-pedia" },
