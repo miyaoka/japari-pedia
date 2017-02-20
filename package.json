@@ -1,15 +1,23 @@
 {
   "name": "japari-pedia",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Welcome to youkoso japari-park!",
-  "keywords": ["chrome-extension", "kemono-friends"],
-  "repository": { "type": "git", "url": "https://github.com/miyaoka/japari-pedia" },
+  "keywords": [
+    "chrome-extension",
+    "kemono-friends"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/miyaoka/japari-pedia"
+  },
   "author": "Masaya Kazama",
   "license": "MIT",
   "scripts": {
     "start": "yarn dev",
     "dev": "webpack-dev-server --config webpack/dev.config.babel.js",
-    "build": "NODE_ENV=production webpack --config webpack/prod.config.babel.js --display-error-details --color",
+    "build": "cross-env NODE_ENV=production webpack --config webpack/prod.config.babel.js --display-error-details --color",
+    "lint": "yarn lint:js && yarn lint:css",
+    "lint:fix": "yarn lint:js:fix && yarn lint:css:fix",
     "lint:js": "eslint src webpack",
     "lint:js:fix": "eslint --fix src webpack",
     "lint:css": "stylelint src/**/*.scss",
@@ -25,6 +33,7 @@
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-polyfill": "^6.23.0",
     "babel-preset-latest": "^6.22.0",
+    "cross-env": "^3.1.4",
     "css-loader": "^0.26.1",
     "eslint": "^3.15.0",
     "eslint-config-airbnb": "^14.1.0",

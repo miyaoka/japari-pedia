@@ -13,17 +13,14 @@ body {
   min-height: 100%;
   background: #375616;
   background: #4a8011;
-//  background: #90c31f;
+  //  background: #90c31f;
 }
 
 /**
  * headings
  */
-#firstHeading
-{
-  text-shadow: 0 0 8px #620,
-    0 0 2px #620,
-    0 0 2px #620;
+#firstHeading {
+  text-shadow: 0 0 8px #620, 0 0 2px #620, 0 0 2px #620;
   color: #fff;
   font-weight: bold;
 }

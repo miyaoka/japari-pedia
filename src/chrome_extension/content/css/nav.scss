@@ -17,9 +17,8 @@
  * left menu
  */
 div#mw-panel {
-
   & #p-logo {
-//    visibility: hidden;
+    //    visibility: hidden;
   }
 
   & div.portal div.body ul li a {
@@ -33,12 +32,12 @@ div#mw-panel {
 }
 
 #footer {
- & a {
+  & a {
     color: #85bd4d;
     color: #a4e230;
 
     &:visited {
       color: #85bd4d;
     }
-}
+  }
 }

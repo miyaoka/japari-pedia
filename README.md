@@ -45,5 +45,5 @@ yarn build
 
 ### font
 
+- http://marusexijaxs.web.fc2.com/quizfont.html
 - http://www.dafont.com/forced-square.font
-- http://marusexijaxs.web.fc2.com/quizfont.html#quizfont5

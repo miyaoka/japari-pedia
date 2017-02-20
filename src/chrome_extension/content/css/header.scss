@@ -5,15 +5,14 @@
   background-image: linear-gradient(#4186fd 0%, #76bbfd 100%);
   height: calc(5em + 5em);
 
-  &:after {
+  &::after {
     width: 100%;
-    height:102px;
+    height: 102px;
     content: "";
     position: absolute;
-    left: 0px;
+    left: 0;
     top: 20px;
     background: url(./japari_logo.png) center no-repeat;
-
   }
 }
 
