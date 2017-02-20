@@ -10,6 +10,8 @@
     "start": "yarn dev",
     "dev": "webpack-dev-server --config webpack/dev.config.babel.js",
     "build": "NODE_ENV=production webpack --config webpack/prod.config.babel.js --display-error-details --color",
+    "lint": "yarn lint:js && yarn lint:css",
+    "lint:fix": "yarn lint:js:fix && yarn lint:css:fix",
     "lint:js": "eslint src webpack",
     "lint:js:fix": "eslint --fix src webpack",
     "lint:css": "stylelint src/**/*.scss",
