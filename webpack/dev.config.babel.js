@@ -11,8 +11,8 @@ const contentPath = path.join(__dirname, '../src', 'chrome_extension', 'content'
 
 const devConf = {
   entry: {
-    content: path.join(contentPath, 'content.js'),
-    content_loader: path.join(contentPath, 'loader.js'),
+    content: path.join(contentPath),
+    content_loader: path.join(contentPath, 'dev.loader'),
   },
   devServer: {
     contentBase: 'build',
