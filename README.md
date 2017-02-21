@@ -1,6 +1,6 @@
 # japari-pedia
 
-This chrome extension makes Wikipedia to Japari-Library.
+This Chrome extension turns Wikipedia into Japari-Library.
 
 Welcome to youkoso japari-park!
 
@@ -8,7 +8,7 @@ Welcome to youkoso japari-park!
 
 Please apply emoji to commit message.
 
-Every commits are friends!
+All the commits are friends!
 
 ## 📦 Requirements
 
