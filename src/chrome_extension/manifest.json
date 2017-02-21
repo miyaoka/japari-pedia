@@ -16,8 +16,7 @@
   "content_scripts": [
     {
       "matches": [
-        "https://*.wikipedia.org/*",
-        "https://*.wiktionary.org/*"
+        "https://*.wikipedia.org/*"
       ],
       "js": [
         "content.js"
