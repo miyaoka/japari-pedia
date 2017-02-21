@@ -1,4 +1,4 @@
-const storeKey = 'japari-pedia'
+const storeKey = 'japari-pedia-key'
 
 chrome.storage.onChanged.addListener(() => {
   location.reload()
@@ -6,7 +6,7 @@ chrome.storage.onChanged.addListener(() => {
 
 export const enabler = (cb) => {
   chrome.storage.local.get(storeKey, (items) => {
-    if (!items[storeKey]) return
+    if (items[storeKey]) return
     cb()
   })
 }
