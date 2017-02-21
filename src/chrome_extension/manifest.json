@@ -8,16 +8,23 @@
     "128": "icon/128.png"
   },
   "browser_action": {
-      "default_icon": {
-          "19": "icon/19.png"
-      }
+    "default_icon": {
+      "19": "icon/19.png",
+      "38": "icon/38.png"
+    }
   },
+  "background": {
+    "scripts": [ "event.js" ],
+    "persistent": false
+  },
+  "permissions": [
+    "storage"
+  ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
   "content_scripts": [
     {
       "matches": [
-        "https://*.wikipedia.org/*",
-        "https://*.wiktionary.org/*"
+        "https://*.wikipedia.org/*"
       ],
       "js": [
         "content.js"

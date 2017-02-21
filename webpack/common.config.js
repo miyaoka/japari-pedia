@@ -8,7 +8,7 @@ const chromeExtPath = path.join(__dirname, '../src', 'chrome_extension')
 
 module.exports = {
   entry: {
-    content: path.join(chromeExtPath, 'content'),
+    event: path.join(chromeExtPath, 'event'),
   },
   output: {
     path: path.join(__dirname, '../build'),
