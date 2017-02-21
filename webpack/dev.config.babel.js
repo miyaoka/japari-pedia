@@ -7,14 +7,12 @@ import commonConf from './common.config'
 
 manifest(env.NODE_ENV === 'development')
 
+const contentPath = path.join(__dirname, '../src', 'chrome_extension', 'content')
+
 const devConf = {
   entry: {
-    content_loader: path.join(__dirname,
-      '../src',
-      'chrome_extension',
-      'content',
-      'loader.js',
-    ),
+    content: path.join(contentPath, 'content.js'),
+    content_loader: path.join(contentPath, 'loader.js'),
   },
   devServer: {
     contentBase: 'build',
