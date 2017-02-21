@@ -23,5 +23,6 @@ module.exports = {
       'exports': 'never',
       'functions': 'only-multiline',
     }],
+    'global-require': OFF,
   }
 }
