@@ -8,7 +8,7 @@ manifest()
 
 const prodConf = {
   entry: {
-    content: path.join(__dirname, '../src', 'chrome_extension', 'content'),
+    content: path.join(__dirname, '../src', 'chrome_extension', 'content', 'prod.loader'),
   },
   plugins: [
     new UglifyJSPlugin(),

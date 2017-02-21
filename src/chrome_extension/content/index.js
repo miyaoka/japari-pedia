@@ -1,5 +1,4 @@
-import enabler from './enabler'
+import content from './content'
 
-enabler(() => {
-  require('./content')
-})
+console.log('content')
+content()
