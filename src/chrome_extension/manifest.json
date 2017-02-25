@@ -1,6 +1,7 @@
 {
-  "name": "ジャパリペディア",
-  "description": "Wikipedia を ジャパリ図書館化 するよ。",
+  "name": "__MSG_extName__",
+  "description": "__MSG_extDescription__",
+  "default_locale": "ja",
   "manifest_version": 2,
   "icons": {
     "16": "icon/16.png",
