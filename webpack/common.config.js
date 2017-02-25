@@ -62,5 +62,11 @@ module.exports = {
         to: 'icon',
       },
     ]),
+    new CopyWebpackPlugin([
+      {
+        from: path.join(chromeExtPath, '_locales'),
+        to: '_locales',
+      },
+    ]),
   ],
 }
