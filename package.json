@@ -20,8 +20,8 @@
     "zip": "bestzip build/build.zip build/*",
     "lint": "yarn lint:js && yarn lint:css",
     "lint:fix": "yarn lint:js:fix && yarn lint:css:fix",
-    "lint:js": "eslint src webpack",
-    "lint:js:fix": "eslint --fix src webpack",
+    "lint:js": "eslint .",
+    "lint:js:fix": "eslint --fix .",
     "lint:css": "stylelint src/**/*.scss",
     "lint:css:fix": "stylefmt -r src/**/*.scss"
   },
