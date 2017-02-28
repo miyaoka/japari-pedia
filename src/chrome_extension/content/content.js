@@ -51,8 +51,17 @@ const randomPick = list => list[Math.floor(Math.random() * list.length)]
 const kemoInnerHTML = list => `<span class="kemo-say">＼${randomPick(list)}／</span>`
 
 const japarizeWikipedia = () => {
+  // document title
   document.title = document.title.replace(/wikipedia$/i, 'ジャパリ図書館')
 
+  // search props
+  const searchInput = document.getElementById('searchInput')
+  const props = ['placeholder', 'title']
+  props.forEach((prop) => {
+    searchInput[prop] = searchInput[prop].replace(/wikipedia/i, 'ジャパリ図書館')
+  })
+
+  // text content
   const walker = document.createTreeWalker(
     document.body,
     NodeFilter.SHOW_TEXT,
