@@ -28,8 +28,9 @@ const devConf = {
 }
 
 const config = webpackMerge(commonConf, devConf)
+const hotEntry = [...Object.keys(commonConf.entry), 'content']
 
-Object.keys(commonConf.entry).forEach((entryName) => {
+hotEntry.forEach((entryName) => {
   config.entry[entryName] =
     [
       (`webpack-dev-server/client?https://${env.HOST}:${env.PORT}`),
