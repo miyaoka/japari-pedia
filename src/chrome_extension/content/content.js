@@ -67,11 +67,9 @@ const japarizeWikipedia = () => {
   // search props
   const searchInput = document.getElementById('searchInput')
   const props = ['placeholder', 'title']
+  const searchRegex = new RegExp(headPattern, 'i')
   props.forEach((prop) => {
-    searchInput[prop] = searchInput[prop].replace(
-      new RegExp(headPattern, 'i'),
-      after
-    )
+    searchInput[prop] = searchInput[prop].replace(searchRegex, after)
   })
 
   // text content
@@ -83,11 +81,9 @@ const japarizeWikipedia = () => {
   )
 
   let n
+  const contextRegex = new RegExp(`(${contextPatterns.join('|')})`, 'gi')
   while ((n = walker.nextNode())) {
-    n.textContent = n.textContent.replace(
-      new RegExp(`(${contextPatterns.join('|')})`, 'gi'),
-      after
-    )
+    n.textContent = n.textContent.replace(contextRegex, after)
   }
 }
 
