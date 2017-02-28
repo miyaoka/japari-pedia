@@ -51,14 +51,27 @@ const randomPick = list => list[Math.floor(Math.random() * list.length)]
 const kemoInnerHTML = list => `<span class="kemo-say">＼${randomPick(list)}／</span>`
 
 const japarizeWikipedia = () => {
+  const headPattern = 'wikipedia'
+  const contextPatterns = [
+    'wikipedia',
+    'ウィキペディア',
+  ]
+  const after = 'ジャパリ図書館'
+
   // document title
-  document.title = document.title.replace(/wikipedia$/i, 'ジャパリ図書館')
+  document.title = document.title.replace(
+    new RegExp(`${headPattern}$`, 'i'),
+    after
+  )
 
   // search props
   const searchInput = document.getElementById('searchInput')
   const props = ['placeholder', 'title']
   props.forEach((prop) => {
-    searchInput[prop] = searchInput[prop].replace(/wikipedia/i, 'ジャパリ図書館')
+    searchInput[prop] = searchInput[prop].replace(
+      new RegExp(headPattern, 'i'),
+      after
+    )
   })
 
   // text content
@@ -71,7 +84,10 @@ const japarizeWikipedia = () => {
 
   let n
   while ((n = walker.nextNode())) {
-    n.textContent = n.textContent.replace(/(wikipedia|ウィキペディア)/gi, 'ジャパリ図書館')
+    n.textContent = n.textContent.replace(
+      new RegExp(`(${contextPatterns.join('|')})`, 'gi'),
+      after
+    )
   }
 }
 
