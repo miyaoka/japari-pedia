@@ -4,45 +4,16 @@ import './css/content.scss'
 import './css/nav.scss'
 import './css/kemo.scss'
 
-/**
- * head
- */
-const exHeadList = [
-  'すごーい！',
-  'すっごーい！',
-  'わーい！',
-]
-const preHeadList = [
-  'キミは',
-  'あなたは',
-]
-const postHeadList = [
-  'のフレンズなんだね！',
-  'って言うんだー！',
-]
+import language from './language.json';
 
-/**
- * paragraph
- */
-const postPeriodList = [
-  'すごーい',
-  'すっごーい',
-  'わーい！',
-  'たのしー！',
-  'たーのしー！',
-  'うー！がぉー！',
-  'へーきへーき！',
-  'なにこれー！？',
-]
-const postParaList = [
-  'でも騒ぐほどでもないか',
-  '全然知らなかったー',
-  'そうなのー！？',
-  'たべないよー！',
-  'そんなことないよー！',
-  'って言うんだー！',
-  '知ってたー?',
-]
+const words = (() => {
+  // Detect the language of the wiki page
+  switch (/https:\/\/(.*?).wiki/.exec(document.URL)[1]) {
+    case "en" : return language.en; break;
+    case "jp" : return language.jp; break;
+    default: return language.jp; break;
+  }
+})()
 
 const sayRate = 0.3
 
@@ -90,26 +61,24 @@ const japarizeWikipedia = () => {
 const japarizeHeader = () => {
   document
   .querySelectorAll('.mw-headline, #mw-panel h3')
-  .forEach(el => (el.textContent = `ジャパリ${el.textContent}`))
+  .forEach(el => (el.textContent = words.titlemin + el.textContent))
 }
 
 const becomeFriendWithSectionTitle = () => {
   const head = document.getElementById('firstHeading')
   head.textContent = [
-    randomPick(exHeadList),
-    randomPick(preHeadList),
-    ' ',
+    randomPick(words.exHeadList),
+    randomPick(words.preHeadList),
     head.textContent,
-    ' ',
-    randomPick(postHeadList),
-  ].join('')
+    randomPick(words.postHeadList),
+  ].join(' ')
 }
 
 const insertWordsInContent = () => {
   document
   .querySelectorAll('#mw-content-text > p')
   .forEach((para) => {
-    let sentence = para.innerHTML.match(/.+?[。]/g)
+    let sentence = para.innerHTML.match(/(.+?[。]|.+?\. )(?!([^<]+)?>)/g)
     if (!sentence) {
       return
     }
@@ -118,13 +87,13 @@ const insertWordsInContent = () => {
     sentence = sentence
     .map((s, i) => (
       (i !== last && Math.random() < sayRate)
-        ? s + kemoInnerHTML(postPeriodList)
+        ? s + ' ' + kemoInnerHTML(words.postPeriodList)
         : s
       )
     )
 
     if (Math.random() < sayRate) {
-      sentence.push(kemoInnerHTML(postParaList))
+      sentence.push(' ' + kemoInnerHTML(words.postParaList))
     }
 
     para.innerHTML = sentence.join('')
