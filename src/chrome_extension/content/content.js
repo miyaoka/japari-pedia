@@ -1,8 +1,4 @@
-import './css/general.scss'
-import './css/header.scss'
-import './css/content.scss'
-import './css/nav.scss'
-import './css/kemo.scss'
+import './css/'
 import language from './language.yml'
 
 const defaultLang = 'en'
