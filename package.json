@@ -23,8 +23,8 @@
     "lint:fix": "yarn lint:js:fix && yarn lint:css:fix",
     "lint:js": "eslint .",
     "lint:js:fix": "eslint --fix .",
-    "lint:css": "stylelint src/**/*.scss",
-    "lint:css:fix": "stylefmt -r src/**/*.scss"
+    "lint:css": "stylelint src/**/*.css",
+    "lint:css:fix": "stylefmt -r src/**/*.css"
   },
   "devDependencies": {
     "babel": "^6.23.0",
