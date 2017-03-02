@@ -1,4 +1,4 @@
-const storeKey = 'japari-pedia-key'
+import * as storeKey from '../storekey'
 
 let isDisableContent = false
 
@@ -8,24 +8,33 @@ const updateIcon = () => {
   })
 }
 
-const getStorage = () => {
-  chrome.storage.local.get(null, (items) => {
-    isDisableContent = items[storeKey]
+const getIsDisableContentState = () => {
+  chrome.storage.local.get(storeKey.isDisableContent, (items) => {
+    isDisableContent = items[storeKey.isDisableContent]
     updateIcon()
   })
 }
-const setStorage = () => {
+const setIsDisableContentState = () => {
   chrome.storage.local.set({
-    [storeKey]: isDisableContent,
+    [storeKey.isDisableContent]: isDisableContent,
+  })
+}
+
+const invalidateHumanSitelinks = () => {
+  chrome.storage.local.set({
+    [storeKey.humanSitelinksValid]: false,
   })
 }
 
 const toggleContentEnable = () => {
   isDisableContent = !isDisableContent
   updateIcon()
-  setStorage()
+  invalidateHumanSitelinks()
+  setIsDisableContentState()
 }
 
 chrome.browserAction.onClicked.addListener(toggleContentEnable)
 
-getStorage()
+chrome.runtime.onStartup.addListener(invalidateHumanSitelinks)
+
+getIsDisableContentState()

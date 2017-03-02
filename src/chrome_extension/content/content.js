@@ -1,3 +1,4 @@
+import extirpateHuman from './extirpateHuman'
 import './css/general.scss'
 import './css/header.scss'
 import './css/content.scss'
@@ -101,4 +102,6 @@ export default () => {
   japarizeHeader()
   becomeFriendWithSectionTitle()
   insertWordsInContent()
+
+  extirpateHuman()
 }
