@@ -1,71 +1,37 @@
 import './css/'
+import language from './language.yml'
 
-/**
- * head
- */
-const exHeadList = [
-  'すごーい！',
-  'すっごーい！',
-  'わーい！',
-]
-const preHeadList = [
-  'キミは',
-  'あなたは',
-]
-const postHeadList = [
-  'のフレンズなんだね！',
-  'って言うんだー！',
-]
-
-/**
- * paragraph
- */
-const postPeriodList = [
-  'すごーい',
-  'すっごーい',
-  'わーい！',
-  'たのしー！',
-  'たーのしー！',
-  'うー！がぉー！',
-  'へーきへーき！',
-  'なにこれー！？',
-]
-const postParaList = [
-  'でも騒ぐほどでもないか',
-  '全然知らなかったー',
-  'そうなのー！？',
-  'たべないよー！',
-  'そんなことないよー！',
-  'って言うんだー！',
-  '知ってたー?',
-]
+const defaultLang = 'en'
+const lang = document.documentElement.lang
+const words = Object.prototype.hasOwnProperty.call(language, lang)
+? language[lang]
+: language[defaultLang]
 
 const sayRate = 0.3
 
 const randomPick = list => list[Math.floor(Math.random() * list.length)]
-
 const kemoInnerHTML = list => `<span class="kemo-say">＼${randomPick(list)}／</span>`
+const escapeRegExp = str => str.replace(/[\\^$.*+?()[\]{}|]/g, '\\$&')
 
 const japarizeWikipedia = () => {
-  const headPattern = 'wikipedia'
+  const wikipedia = 'wikipedia'
   const contextPatterns = [
-    'wikipedia',
-    'ウィキペディア',
+    wikipedia,
+    words.wikipedia,
   ]
-  const after = 'ジャパリ図書館'
 
   // document title
   document.title = document.title.replace(
-    new RegExp(`${headPattern}$`, 'i'),
-    after
+    new RegExp(`${wikipedia}$`, 'i'),
+    words.title
   )
 
   // search props
   const searchInput = document.getElementById('searchInput')
   const props = ['placeholder', 'title']
-  const searchRegex = new RegExp(headPattern, 'i')
+  const searchRegex = new RegExp(wikipedia, 'i')
   props.forEach((prop) => {
-    searchInput[prop] = searchInput[prop].replace(searchRegex, after)
+    searchInput[prop] = searchInput[prop].replace(searchRegex, words.title)
   })
 
   // text content
@@ -79,33 +45,32 @@ const japarizeWikipedia = () => {
   let n
   const contextRegex = new RegExp(`(${contextPatterns.join('|')})`, 'gi')
   while ((n = walker.nextNode())) {
-    n.textContent = n.textContent.replace(contextRegex, after)
+    n.textContent = n.textContent.replace(contextRegex, words.title)
   }
 }
 
 const japarizeHeader = () => {
   document
   .querySelectorAll('.mw-headline, #mw-panel h3')
-  .forEach(el => (el.textContent = `ジャパリ${el.textContent}`))
+  .forEach(el => (el.textContent = words.titlemin + el.textContent))
 }
 
 const becomeFriendWithSectionTitle = () => {
   const head = document.getElementById('firstHeading')
   head.textContent = [
-    randomPick(exHeadList),
-    randomPick(preHeadList),
-    ' ',
+    randomPick(words.exHeadList),
+    randomPick(words.preHeadList),
     head.textContent,
-    ' ',
-    randomPick(postHeadList),
-  ].join('')
+    randomPick(words.postHeadList),
+  ].join(' ')
 }
 
 const insertWordsInContent = () => {
+  const regex = new RegExp(`(.+?${escapeRegExp(words.delimiter)})(?!([^<]+)?>)`, 'g')
   document
   .querySelectorAll('#mw-content-text > p')
   .forEach((para) => {
-    let sentence = para.innerHTML.match(/.+?[。]/g)
+    let sentence = para.innerHTML.match(regex)
     if (!sentence) {
       return
     }
@@ -114,13 +79,13 @@ const insertWordsInContent = () => {
     sentence = sentence
     .map((s, i) => (
       (i !== last && Math.random() < sayRate)
-        ? s + kemoInnerHTML(postPeriodList)
+        ? `${s}${kemoInnerHTML(words.postPeriodList)}`
         : s
       )
     )
 
     if (Math.random() < sayRate) {
-      sentence.push(kemoInnerHTML(postParaList))
+      sentence.push(kemoInnerHTML(words.postParaList))
     }
 
     para.innerHTML = sentence.join('')

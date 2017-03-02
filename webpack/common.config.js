@@ -44,6 +44,13 @@ module.exports = {
           'url-loader',
         ],
       },
+      {
+        test: /\.ya?ml$/,
+        use: [
+          'json-loader',
+          'yaml-loader',
+        ],
+      },
     ],
   },
   resolve: {
