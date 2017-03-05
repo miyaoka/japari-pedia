@@ -1,4 +1,4 @@
-import './css/'
+import './css/index.css'
 import language from './language.yml'
 
 const defaultLang = 'en'

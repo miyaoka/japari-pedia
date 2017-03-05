@@ -1,5 +1,0 @@
-import './general.css'
-import './header.css'
-import './content.css'
-import './nav.css'
-import './kemo.css'
