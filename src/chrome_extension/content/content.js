@@ -68,7 +68,7 @@ const becomeFriendWithSectionTitle = () => {
 const insertWordsInContent = () => {
   const regex = new RegExp(`(.+?${escapeRegExp(words.delimiter)})(?!([^<]+)?>)`, 'g')
   document
-  .querySelectorAll('#mw-content-text > p')
+  .querySelectorAll('.mw-parser-output > p')
   .forEach((para) => {
     let sentence = para.innerHTML.match(regex)
     if (!sentence) {
